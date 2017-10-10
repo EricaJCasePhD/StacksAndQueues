@@ -1,0 +1,83 @@
+class ArrayStack(object):
+    def __init__(self):
+        self.__stackarray = []
+
+    @property
+    def top(self):
+        next_value = self.__stackarray.pop()
+        self.push(next_value)
+        return (next_value)
+
+    def push(self, value):
+        self.__stackarray.append(value)
+
+    def pop(self):
+        return self.__stackarray.pop()
+
+    @property
+    def size(self):
+        return len(self.__stackarray)
+
+    @property
+    def is_empty(self):
+        return self.size == 0
+
+    @property
+    def min(self):
+        return min(self.__stackarray)
+
+    @property
+    def max(self):
+        return min(self.__stackarray)
+
+    def print(self):
+        for item in self.__stackarray:
+            print(item)
+
+class LinkedListStack(object):
+    def __init__(self):
+        self.__stack_list = None
+
+    def push(self, value):
+        self.__stack_list.insert(value)
+
+    def pop(self):
+        pop_value = self.__stack_list.__head.value()
+        stack_list.__head = stack.__next_node
+        return (pop_value)
+
+    @property
+    def top(self):
+        next_value = self.__stacklist.pop()
+        self.__stackarray.push(next_value)
+        return (next_value)
+
+    @property
+    def size(self):
+        return (len(self.__stacklist))
+
+    @property
+    def is_empty(self):
+        return (self.__stackarray == 0)
+
+    @property
+    def min(self):
+        return (min(self.__stackarray))
+
+    @property
+    def max(self):
+        return (min(self.__stackarray))
+
+def test_stack(stacklist):
+    if not (stacklist.is_empty): print("empty doesn't work")
+    if stacklist.size != 0: print("size doesn't work")
+
+    stacklist.push(4)
+    if stacklist.size != 1: print("push doesn't work")
+    if stacklist.top != 4: print("top doesn't work")
+
+    if stacklist.pop() != 4: print("pop doesn't work")
+    if not (stacklist.is_empty): print("pop doesn't work")
+
+test_stack(ArrayStack())
+test_stack(LinkedListStack())
