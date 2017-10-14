@@ -37,6 +37,27 @@ class BinaryTree(object):
         # value_to_find
         return self.search(value, node.right)
 
+    def insert(self, value, root):
+        node = root
+        while node is not None:
+            if node.value > value:
+                if node.left is None:
+                    node.left = TreeNode(value)
+                    return
+                else:
+                    print(node.left.value)
+                    node = node.left
+            else:
+                if node.right is None:
+                    node.right = TreeNode(value)
+                    return
+                else:
+                    node = node.right
+
+        node = TreeNode(value)
+
+    def delete(self, value):
+        pass
 
 class TreeNode(object):
     def __init__(self, value=None, left=None, right=None):
@@ -61,11 +82,18 @@ def make_tree():
 
 tree = make_tree()
 tree.search(3.5, tree.root)
-# tree.print_pre_order(tree.root)
-# tree.print_post_order(tree.root)
+tree.print_pre_order(tree.root)
+tree.print_post_order(tree.root)
 tree.print_in_order(tree.root)
 
 print(tree.search(5, tree.root))
 print(tree.search(1, tree.root))
 print(tree.search(3.5, tree.root))
 print(tree.search(1.5, tree.root))
+
+tree.print_in_order(tree.root)
+tree.insert(value=10, root=tree.root)
+tree.print_in_order(tree.root)
+tree.insert(value=2, root=tree.root)
+
+null_tree.insert(root=null_tree.root)
